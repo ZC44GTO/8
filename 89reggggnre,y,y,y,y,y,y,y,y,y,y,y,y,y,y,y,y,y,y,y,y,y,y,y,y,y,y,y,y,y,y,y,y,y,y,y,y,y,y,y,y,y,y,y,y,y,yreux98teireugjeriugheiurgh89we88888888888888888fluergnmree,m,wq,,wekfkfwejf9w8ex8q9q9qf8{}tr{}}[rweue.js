@@ -1311,8 +1311,7 @@ let cheatMenuCode = `
 		</div>
 
 		<div id="infoWindow">
-			<p>Press Num7 To Toggle UI</p>
-            <a href="https://vk.com/wlf.team" target="_blank"><center><font id="nig" color="black">Создано by tdsrse</center></font></p>
+            <a href="https://vk.com/wlf.team" target="_blank"><center><font id="nig" color="black">by tdsrse</center></font></p>
 		</div>
 
 	</div>
