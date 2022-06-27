@@ -1294,7 +1294,7 @@ let cheatMenuCode = `
 	</style>
 
 	<div class="shizoval__content">
-        <center><div class="sc-bwzfXH cMCjGt"  style="font-size: 10x">Добро пожаловать!</center>
+        <center><div class="sc-bwzfXH cMCjGt"  style="font-size: 15x">Добро пожаловать!</center>
 
 
 		<div id="gameStates" style="display: none;">
@@ -1311,7 +1311,7 @@ let cheatMenuCode = `
 		</div>
 
 		<div id="infoWindow">
-            <a href="https://vk.com/wlf.team" target="_blank"><center><font id="nig" color="black">by tdsrse</center></font></p>
+            <a href="https://vk.com/wlf.team" target="_blank"><center><font id="nig" color="purple">by tdsrse</center></font></p>
 		</div>
 
 	</div>
