@@ -1294,7 +1294,7 @@ let cheatMenuCode = `
 	</style>
 
 	<div class="shizoval__content">
-        <center><div class="sc-bwzfXH cMCjGt"  style="font-size: 15x">Wolf Helper!</center>
+        <center><div class="sc-bwzfXH cMCjGt"  style="font-size: 15x">Добро пожаловать!</center>
 
 
 		<div id="gameStates" style="display: none;">
