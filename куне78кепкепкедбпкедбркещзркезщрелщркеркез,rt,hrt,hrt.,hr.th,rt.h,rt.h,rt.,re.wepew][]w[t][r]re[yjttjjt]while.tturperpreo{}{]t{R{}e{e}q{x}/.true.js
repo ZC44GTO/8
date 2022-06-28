@@ -1,31 +1,3 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@aomifndnnda 
-aomifndnnda
-/
-Assistant
-Public
-forked from Akzya/Assistant
-Code
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-Settings
-Assistant/assistant1.js /
-@Akzya
-Akzya Update and rename assistant.js to assistant1.js
-Latest commit afbc61c 15 days ago
- History
- 1 contributor
-1075 lines (845 sloc)  23.3 KB
 
 class Utils
 {
