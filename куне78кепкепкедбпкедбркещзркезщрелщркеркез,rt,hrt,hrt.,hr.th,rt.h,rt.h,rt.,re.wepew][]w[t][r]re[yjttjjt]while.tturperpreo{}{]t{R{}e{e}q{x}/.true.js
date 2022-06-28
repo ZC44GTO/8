@@ -1266,48 +1266,6 @@ document.addEventListener('keyup', (e) =>
     }
 })
 
-
-class FastClicker
-{
-process = null
-}
-
-let fastClicker = false
-
-FastClicker.process = function(localPlayer)
-{
-    if (!localPlayer)
-    {
-        return;
-    }
-
-    let world = GameObjects.getWorld();
-
-    if (!world)
-    {
-        return;
-    }
-
-
-if (fastClicker)
-{
-gameObjects.localPlayer.at(37).sendState_0(gameObjects.physicsComponent.getInterpolatedBodyState());
-}
-
-    if(!fastClicker)
-    {
-return
-    }
-}
-
-    document.addEventListener('keyup', (e) =>
-{
-    if (e.keyCode == 104 && Utils.isGameReady() && Utils.isNotOpenChat())
-    {
-        fastClicker = !fastClicker;
-    }
-})
-
 let cheatMenuCode = `
 <div class="shizoval" id="shizoval_window">
 
@@ -1347,7 +1305,6 @@ let cheatMenuCode = `
             <p>Striker One-Shot: <font id="strikerHackStateColor" color="red"><label id="strikerHackState">OFF</label></font></p>
             <p>Remove Mines: <font id="removeMinesStateColor" color="red"><label id="removeMinesState">OFF</label></font></p>
             <p>Clicker: <font id="autoMiningStateColor" color="red"><label id="autoMiningState">OFF</label></font></p>
-            <p>Fast Update: <font id="rapidStateColor" color="red"><label id="rapidState">OFF</label></font></p>
             <p>No Impact: <font id="noImpactStateColor" color="red"><label id="noImpactState">OFF</label></font></p>
 	    <p>Rapid Update: <font id="rapidClickStateColor" color="red"><label id="rapidClickState">OFF</label></font></p>
 		</div>
@@ -1503,12 +1460,6 @@ CheatMenu.init = function ()
         {
             color: document.getElementById("rapidStateColor"),
             label: document.getElementById("rapidState")
-        },
-
-                 rapidClick:
-        {
-            color: document.getElementById("rapidClickStateColor"),
-            label: document.getElementById("rapidClickState")
         }
 
     };
