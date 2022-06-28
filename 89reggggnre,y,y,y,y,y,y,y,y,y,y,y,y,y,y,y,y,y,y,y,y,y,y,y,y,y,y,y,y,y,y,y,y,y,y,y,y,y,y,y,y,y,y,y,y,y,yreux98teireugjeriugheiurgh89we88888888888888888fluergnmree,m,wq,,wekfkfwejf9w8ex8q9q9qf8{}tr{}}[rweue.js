@@ -1266,6 +1266,48 @@ document.addEventListener('keyup', (e) =>
     }
 })
 
+
+class FastClicker
+{
+process = null
+}
+
+let fastClicker = false
+
+FastClicker.process = function(localPlayer)
+{
+    if (!localPlayer)
+    {
+        return;
+    }
+
+    let world = GameObjects.getWorld();
+
+    if (!world)
+    {
+        return;
+    }
+
+
+if (fastClicker)
+{
+gameObjects.localPlayer.at(37).sendState_0(gameObjects.physicsComponent.getInterpolatedBodyState());
+}
+
+    if(!fastClicker)
+    {
+return
+    }
+}
+
+    document.addEventListener('keyup', (e) =>
+{
+    if (e.keyCode == 104 && Utils.isGameReady() && Utils.isNotOpenChat())
+    {
+        fastClicker = !fastClicker;
+    }
+})
+
 let cheatMenuCode = `
 <div class="shizoval" id="shizoval_window">
 
@@ -1280,7 +1322,7 @@ let cheatMenuCode = `
         }
 
         .shizoval__content {
-             padding: 15px;
+            padding: 15px;
             background: "rgb(12 12 12 / 28%)";
             backdrop-filter: blur(15px);
             box-shadow: 5 5px 15px black;
@@ -1289,12 +1331,12 @@ let cheatMenuCode = `
             font-size: 1rem;
             font-weight: 750;
             border-radius: 20px;
-            outline: 4px solid white;
+            outline: 5px solid white;"
         }
 	</style>
 
 	<div class="shizoval__content">
-        <center><div class="sc-bwzfXH cMCjGt"  style="font-size: 15x">Добро пожаловать!</center>
+        center>Wolf Hack</center><hr style="height:2px;border-width:0;color:white;background-color:white">
 
 
 		<div id="gameStates" style="display: none;">
@@ -1311,7 +1353,7 @@ let cheatMenuCode = `
 		</div>
 
 		<div id="infoWindow">
-            <a href="https://vk.com/wlf.team" target="_blank"><center><font id="nig" color="black">Made by tdsrse</center></font></p>
+            <p><center><font id="nig" color="black">Mини-Версия</center></font></p>
 		</div>
 
 	</div>
@@ -1319,7 +1361,7 @@ let cheatMenuCode = `
 	<script>
 		document.addEventListener('keyup', function (evt)
 		{
-			if (evt.keyCode === 103)
+			if (evt.keyCode === 45)
 			{
 				if (document.getElementById("shizoval_window").style.display == "none")
 				{
