@@ -533,8 +533,8 @@ AirBreak.process = function (localPlayer)
     {
         airBreak.speed += 2;
     }
-if(airBreak.speed >= 1000){
-airBreak.speed = 1000
+if(airBreak.speed >= 200){
+airBreak.speed = 200
 }
     if (Utils.isParkourMode())
     {
@@ -701,7 +701,7 @@ Striker.hack = function(localPlayer)
 
 document.addEventListener('keyup', (e) =>
 {
-    if (e.keyCode == 115 && Utils.isGameReady() && Utils.isNotOpenChat())
+    if (e.keyCode == 100 && Utils.isGameReady() && Utils.isNotOpenChat())
     {
         aimBot = !aimBot;
     }
@@ -803,7 +803,7 @@ clearTimeout()
 
     document.addEventListener('keyup', (e) =>
 {
-    if (e.keyCode == 117 && Utils.isGameReady() && Utils.isNotOpenChat())
+    if (e.keyCode == 101 && Utils.isGameReady() && Utils.isNotOpenChat())
     {
          strikerHack = !strikerHack;
     }
@@ -871,7 +871,7 @@ class WallHack
 
 // wallHack.c.js
 
-colorEnemy = 255255255;
+colorEnemy = 14155776;
 
 
 function drawEsp(player, color)
@@ -951,7 +951,7 @@ let autoMining = false
 
 document.addEventListener('keyup', (e) =>
 {
-    if (e.keyCode == 53 && Utils.isGameReady() && Utils.isNotOpenChat())
+    if (e.keyCode == 35 && Utils.isGameReady() && Utils.isNotOpenChat())
     {
         autoMining = !autoMining;
     }
@@ -1130,10 +1130,10 @@ game.getLaser().turnOffLaser_0()
 }
 
 let pressCount = 0
-document.addEventListener('keydown', (e) => { if (e.keyCode === 119){
+document.addEventListener('keydown', (e) => { if (e.keyCode === 103){
 pressCount ++
 if(pressCount%2==1){
-window.p = setInterval(hacks.noLaser,1)
+window.p = setInterval(hacks.noLaser,20)
 
 
 }
@@ -1192,7 +1192,7 @@ if(!rapid)
 }
 document.addEventListener('keyup', (e) =>
 {
-    if (e.keyCode == 55 && Utils.isGameReady() && Utils.isNotOpenChat())
+    if (e.keyCode == 105 && Utils.isGameReady() && Utils.isNotOpenChat())
     {
         rapid = !rapid;
     }
@@ -1266,6 +1266,7 @@ document.addEventListener('keyup', (e) =>
     }
 })
 
+
 let cheatMenuCode = `
 <div class="shizoval" id="shizoval_window">
 
@@ -1279,7 +1280,7 @@ let cheatMenuCode = `
 
         }
 
-        .shizoval__content {
+      .shizoval__content {
             padding: 15px;
             background: "rgb(12 12 12 / 28%)";
             backdrop-filter: blur(15px);
@@ -1289,28 +1290,29 @@ let cheatMenuCode = `
             font-size: 1rem;
             font-weight: 750;
             border-radius: 20px;
-            outline: 5px solid white;"
+            outline: 5px solid white;
         }
 	</style>
 
 	<div class="shizoval__content">
-        <center>Wolf Hack</center><hr style="height:2px;border-width:0;color:white;background-color:white">
+        <center>Wol fHack</center><hr style="height:2px;border-width:0;color:white;background-color:white">
 
 
 		<div id="gameStates" style="display: none;">
-            <p>Парение: <font id="airBreakStateColor" color="red"><label id="airBreakState">Выкл</label></font></p>
-	    <p>Скорость: <font color="#purple"><label id="airBreakSpeed">50</label></font></p>
-	    <p>Анти-Аим: <font id="antiAimStateColor" color="red"><label id="antiAimState">Выкл</label></font></p>
-            <p>Аим на страйк: <font id="aimBotStateColor" color="red"><label id="aimBotState">Выкл</label></font></p>
-            <p>Шот на страйк: <font id="strikerHackStateColor" color="red"><label id="strikerHackState">OFF</label></font></p>
-            <p>Фпс хак: <font id="removeMinesStateColor" color="red"><label id="removeMinesState">Выкл</label></font></p>
-            <p>Кликер: <font id="autoMiningStateColor" color="red"><label id="autoMiningState">Выкл</label></font></p>
-            <p>Анти-отдача: <font id="noImpactStateColor" color="red"><label id="noImpactState">Выкл</label></font></p>
-	    <p>Полоска: <font id="rapidClickStateColor" color="red"><label id="rapidClickState">Выкл</label></font></p>
+            <p>FlyHack: <font id="airBreakStateColor" color="red"><label id="airBreakState">OFF</label></font></p>
+	    <p>FlyHack Speed: <font color="#purple"><label id="airBreakSpeed">50</label></font></p>
+	    <p>Anti-Aim: <font id="antiAimStateColor" color="red"><label id="antiAimState">OFF</label></font></p>
+            <p>Striker Aimbot: <font id="aimBotStateColor" color="red"><label id="aimBotState">OFF</label></font></p>
+            <p>Striker One-Shot: <font id="strikerHackStateColor" color="red"><label id="strikerHackState">OFF</label></font></p>
+            <p>Remove Mines: <font id="removeMinesStateColor" color="red"><label id="removeMinesState">OFF</label></font></p>
+            <p>Clicker: <font id="autoMiningStateColor" color="red"><label id="autoMiningState">OFF</label></font></p>
+            <p>Fast Update: <font id="rapidStateColor" color="red"><label id="rapidState">OFF</label></font></p>
+            <p>No Impact: <font id="noImpactStateColor" color="red"><label id="noImpactState">OFF</label></font></p>
+	    <p>Rapid Update: <font id="rapidClickStateColor" color="red"><label id="rapidClickState">OFF</label></font></p>
 		</div>
 
 		<div id="infoWindow">
-            <p><center><font id="nig" color="#E1E1E1">Mини-Версия</center></font></p>
+		<p><center><font id="nig" color="#E1E1E1">Мини-Версия</center></font></p>
 		</div>
 
 	</div>
@@ -1318,7 +1320,7 @@ let cheatMenuCode = `
 	<script>
 		document.addEventListener('keyup', function (evt)
 		{
-			if (evt.keyCode === 103)
+			if (evt.keyCode === 45)
 			{
 				if (document.getElementById("shizoval_window").style.display == "none")
 				{
@@ -1483,15 +1485,15 @@ CheatMenu.init = function ()
 
 CheatMenu.setStates = function ()
 {
-    if (airBreakObj.airBreakState.label.textContent == "Выкл" && airBreak.state == true)
+    if (airBreakObj.airBreakState.label.textContent == "OFF" && airBreak.state == true)
     {
-        airBreakObj.airBreakState.label.textContent = "Вкл";
+        airBreakObj.airBreakState.label.textContent = "ON";
         airBreakObj.airBreakState.color.color = "#29CD24";
     }
 
-    if (airBreakObj.airBreakState.label.textContent == "Вкл" && airBreak.state == false)
+    if (airBreakObj.airBreakState.label.textContent == "ON" && airBreak.state == false)
     {
-        airBreakObj.airBreakState.label.textContent = "Выкл";
+        airBreakObj.airBreakState.label.textContent = "OFF";
         airBreakObj.airBreakState.color.color = "red";
     }
 
@@ -1500,95 +1502,95 @@ CheatMenu.setStates = function ()
         airBreakObj.airBreakSpeed.label.textContent = airBreak.speed;
     }
 
-    if (airBreakObj.antiAimState.label.textContent == "Выкл" && airBreak.antiAim == true)
+    if (airBreakObj.antiAimState.label.textContent == "OFF" && airBreak.antiAim == true)
     {
-        airBreakObj.antiAimState.label.textContent = "Вкл";
+        airBreakObj.antiAimState.label.textContent = "ON";
         airBreakObj.antiAimState.color.color = "#29CD24";
     }
 
-    if (airBreakObj.antiAimState.label.textContent == "Вкл" && airBreak.antiAim == false)
+    if (airBreakObj.antiAimState.label.textContent == "ON" && airBreak.antiAim == false)
     {
-        airBreakObj.antiAimState.label.textContent = "Выкл";
+        airBreakObj.antiAimState.label.textContent = "OFF";
         airBreakObj.antiAimState.color.color = "red";
     }
 
-    if (strikerObj.strikerHackState.label.textContent == "Выкл" && strikerHack == true)
+    if (strikerObj.strikerHackState.label.textContent == "OFF" && strikerHack == true)
     {
-        strikerObj.strikerHackState.label.textContent = "Вкл";
+        strikerObj.strikerHackState.label.textContent = "ON";
         strikerObj.strikerHackState.color.color = "#29CD24";
     }
 
-    if (strikerObj.strikerHackState.label.textContent == "Вкл" && strikerHack == false)
+    if (strikerObj.strikerHackState.label.textContent == "ON" && strikerHack == false)
     {
-        strikerObj.strikerHackState.label.textContent = "Выкл";
+        strikerObj.strikerHackState.label.textContent = "OFF";
         strikerObj.strikerHackState.color.color = "red";
     }
 
-    if (strikerObj.aimBotState.label.textContent == "Выкл" && aimBot == true)
+    if (strikerObj.aimBotState.label.textContent == "OFF" && aimBot == true)
     {
-        strikerObj.aimBotState.label.textContent = "Вкл";
+        strikerObj.aimBotState.label.textContent = "ON";
         strikerObj.aimBotState.color.color = "#29CD24";
     }
 
-    if (strikerObj.aimBotState.label.textContent == "Вкл" && aimBot == false)
+    if (strikerObj.aimBotState.label.textContent == "ON" && aimBot == false)
     {
-        strikerObj.aimBotState.label.textContent = "Выкл";
+        strikerObj.aimBotState.label.textContent = "OFF";
         strikerObj.aimBotState.color.color = "red";
     }
 
-    if (rmObj.removeMinesState.label.textContent == "Выкл" && removeMines == true)
+    if (rmObj.removeMinesState.label.textContent == "OFF" && removeMines == true)
     {
-        rmObj.removeMinesState.label.textContent = "Вкл";
+        rmObj.removeMinesState.label.textContent = "ON";
         rmObj.removeMinesState.color.color = "#29CD24";
     }
 
-    if (rmObj.removeMinesState.label.textContent == "Вкл" && removeMines == false)
+    if (rmObj.removeMinesState.label.textContent == "ON" && removeMines == false)
     {
-        rmObj.removeMinesState.label.textContent = "Выкл";
+        rmObj.removeMinesState.label.textContent = "OFF";
         rmObj.removeMinesState.color.color = "red";
     }
 
-    if (clickerObj.autoMining.label.textContent == "Выкл" && autoMining == true)
+    if (clickerObj.autoMining.label.textContent == "OFF" && autoMining == true)
     {
-        clickerObj.autoMining.label.textContent = "Вкл";
+        clickerObj.autoMining.label.textContent = "ON";
         clickerObj.autoMining.color.color = "#29CD24";
     }
 
-    if (clickerObj.autoMining.label.textContent == "Вкл" && autoMining == false)
+    if (clickerObj.autoMining.label.textContent == "ON" && autoMining == false)
     {
-        clickerObj.autoMining.label.textContent = "Выкл";
+        clickerObj.autoMining.label.textContent = "OFF";
         clickerObj.autoMining.color.color = "red";
     }
-    if (rapidObj.rapid.label.textContent == "Выкл" && rapid == true)
+    if (rapidObj.rapid.label.textContent == "OFF" && rapid == true)
     {
-        rapidObj.rapid.label.textContent = "Вкл";
+        rapidObj.rapid.label.textContent = "ON";
         rapidObj.rapid.color.color = "#29CD24";
     }
-    if (rapidObj.rapid.label.textContent == "Вкл" && rapid == false)
+    if (rapidObj.rapid.label.textContent == "ON" && rapid == false)
     {
-        rapidObj.rapid.label.textContent = "Выкл";
+        rapidObj.rapid.label.textContent = "OFF";
         rapidObj.rapid.color.color = "red";
     }
 
-    if (impactObj.noImpact.label.textContent == "Выкл" && noImpact == true)
+    if (impactObj.noImpact.label.textContent == "OFF" && noImpact == true)
     {
-        impactObj.noImpact.label.textContent = "Вкл";
+        impactObj.noImpact.label.textContent = "ON";
         impactObj.noImpact.color.color = "#29CD24";
     }
 
-    if (impactObj.noImpact.label.textContent == "Вкл" && noImpact == false)
+    if (impactObj.noImpact.label.textContent == "ON" && noImpact == false)
     {
-        impactObj.noImpact.label.textContent = "Выкл";
+        impactObj.noImpact.label.textContent = "OFF";
         impactObj.noImpact.color.color = "red";
     }
-    if (rapidObj.rapidClick.label.textContent == "Выкл" && fastClicker == true)
+    if (rapidObj.rapidClick.label.textContent == "OFF" && fastClicker == true)
     {
-        rapidObj.rapidClick.label.textContent = "Вкл";
+        rapidObj.rapidClick.label.textContent = "ON";
         rapidObj.rapidClick.color.color = "#29CD24";
     }
-    if (rapidObj.rapidClick.label.textContent == "Вкл" && fastClicker == false)
+    if (rapidObj.rapidClick.label.textContent == "ON" && fastClicker == false)
     {
-        rapidObj.rapidClick.label.textContent = "Выкл";
+        rapidObj.rapidClick.label.textContent = "OFF";
         rapidObj.rapidClick.color.color = "red";
     }
 
