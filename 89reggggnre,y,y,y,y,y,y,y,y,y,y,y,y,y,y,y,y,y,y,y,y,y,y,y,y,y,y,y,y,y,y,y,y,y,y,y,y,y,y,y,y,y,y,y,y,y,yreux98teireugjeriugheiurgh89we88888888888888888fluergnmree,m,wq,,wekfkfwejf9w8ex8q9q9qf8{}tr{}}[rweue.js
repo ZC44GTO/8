@@ -1310,7 +1310,7 @@ let cheatMenuCode = `
 		</div>
 
 		<div id="infoWindow">
-            <p><center><font id="nig" color="black">Mини-Версия</center></font></p>
+            <p><center><font id="nig" color="#E1E1E1">Mини-Версия</center></font></p>
 		</div>
 
 	</div>
