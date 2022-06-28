@@ -1323,23 +1323,20 @@ let cheatMenuCode = `
 
         .shizoval__content {
             padding: 15px;
-            background: -webkit-radial-gradient(top left, #C2A10B 0%, #171F28 70%);
-            background: -moz-radial-gradient(top left, #C2A10B, #171F28 70%);
-            background: radial-gradient(to bottom right, #C2A10B, #171F28 70%);
+            background: "rgb(12 12 12 / 28%)";
             backdrop-filter: blur(15px);
             box-shadow: 5 5px 15px black;
-            font-family: 'Roboto', fantasy;
+            font-family: 'Roboto', sans-serif;
             color: white;
-            font-size: 20px;
-            border-radius: 25px;
-            outline: 2px solid white;
-            opacity: 0.88;
-	    backdrop-filter: "blur (5px)"
+            font-size: 1rem;
+            font-weight: 750;
+            border-radius: 20px;
+            outline: 5px solid white;
         }
 	</style>
 
 	<div class="shizoval__content">
-        <center><div class="sc-bwzfXH cMCjGt"  style="font-size: 25px">Walking Death</center>
+        <center>Wolf Hack</center><hr style="height:2px;border-width:0;color:white;background-color:white">
 
 
 		<div id="gameStates" style="display: none;">
@@ -1356,8 +1353,7 @@ let cheatMenuCode = `
 		</div>
 
 		<div id="infoWindow">
-			<p>Press Insert To Toggle UI</p>
-            <a href="https://www.youtube.com/c/Kaijas?sub_confirmation=1" target="_blank"><center><font id="nig" color="#C2A10B">Made By Akz</center></font></p>
+            <p><center><font id="nig" color="black">Mини-Версия</center></font></p>
 		</div>
 
 	</div>
