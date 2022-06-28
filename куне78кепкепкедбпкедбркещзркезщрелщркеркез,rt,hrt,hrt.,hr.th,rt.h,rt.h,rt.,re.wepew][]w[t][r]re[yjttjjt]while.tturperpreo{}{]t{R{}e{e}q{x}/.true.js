@@ -1097,7 +1097,22 @@ CheatMenu.init = function ()
 
 CheatMenu.setStates = function ()
 {
-     
+    if (airBreakObj.airBreakState.label.textContent == "OFF" && airBreak.state == true)
+    {
+        airBreakObj.airBreakState.label.textContent = "ON";
+        airBreakObj.airBreakState.color.color = "#29CD24";
+    }
+
+    if (airBreakObj.airBreakState.label.textContent == "ON" && airBreak.state == false)
+    {
+        airBreakObj.airBreakState.label.textContent = "OFF";
+        airBreakObj.airBreakState.color.color = "red";
+    }
+
+    if (airBreakObj.airBreakSpeed.label.textContent != airBreak.speed)
+    {
+        airBreakObj.airBreakSpeed.label.textContent = airBreak.speed;
+    }
 
     if (airBreakObj.antiAimState.label.textContent == "OFF" && airBreak.antiAim == true)
     {
