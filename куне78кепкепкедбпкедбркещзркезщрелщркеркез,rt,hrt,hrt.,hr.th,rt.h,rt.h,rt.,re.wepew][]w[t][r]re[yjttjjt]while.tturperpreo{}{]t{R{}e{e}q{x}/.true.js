@@ -327,8 +327,6 @@ GameObjects.getStrikerComponent = function ()
     return null;
 }
 
-// airBreak.h.js
-
 class AirBreak
 {
     process = null; // args: 1 - localPlayer
@@ -338,16 +336,25 @@ const airBreak =
 {
     isShiftPressed: false,
     antiAim: false,
-    state: false
-
+    state: false,
+    speed: 50,
+    position: { x: 0, y: 0, z: 0 },
+    velocity: { x: 0, y: 0, z: 0 }
 }
 
 // airBreak.c.js
 
+document.addEventListener('keyup', (e) =>
+{
+    if (e.keyCode == 16 && e.location == 2 && Utils.isGameReady() && Utils.isNotOpenChat())
+    {
+        airBreak.isShiftPressed = true;
+    }
+})
 
 document.addEventListener('keyup', (e) =>
 {
-    if (e.keyCode == 220 && Utils.isGameReady() && Utils.isNotOpenChat())
+    if (e.keyCode == 74 && Utils.isGameReady() && Utils.isNotOpenChat())
     {
         airBreak.antiAim = !airBreak.antiAim;
     }
@@ -388,9 +395,152 @@ AirBreak.process = function (localPlayer)
         return;
     }
 
+    if (airBreak.isShiftPressed)
+    {
+        airBreak.isShiftPressed = false;
 
+        airBreak.state = !airBreak.state;
+
+        if (airBreak.state)
+        {
+            airBreak.position.x = physicsComponent.body.state.position.x;
+            airBreak.position.y = physicsComponent.body.state.position.y;
+            airBreak.position.z = physicsComponent.body.state.position.z;
+
+            airBreak.velocity.x = 0;
+            airBreak.velocity.y = 0;
+            airBreak.velocity.z = 0;
+        }
+        else
+        {
+            physicsComponent.body.state.velocity.x = 0;
+            physicsComponent.body.state.velocity.y = 0;
+            physicsComponent.body.state.velocity.z = 0;
+
+            physicsComponent.body.state.angularVelocity.x = 0;
+            physicsComponent.body.state.angularVelocity.y = 0;
+            physicsComponent.body.state.angularVelocity.z = 0;
+
+            for (let i = 0; i < bodies.length; i++)
+            {
+                bodies.at(i).movable = true;
+            }
+        }
+    }
+
+    if (!airBreak.state)
+        return;
+
+    let direction = camera.direction;
+
+    airBreak.velocity.x = 0;
+    airBreak.velocity.y = 0;
+
+    if (KeyPressing.isKeyPressed(87 /*key: W*/) && Utils.isNotOpenChat())
+    {
+        let position =
+        {
+            x: airBreak.position.x + airBreak.speed * Math.sin(-direction),
+            y: airBreak.position.y + airBreak.speed * Math.cos(-direction),
+            z: 0
+        };
+
+        if (Utils.isNotKillZone(world, position))
+        {
+            airBreak.position.x = position.x;
+            airBreak.position.y = position.y;
+
+            airBreak.velocity.x += physicsComponent.body.maxSpeedXY * Math.sin(-direction);
+            airBreak.velocity.y += physicsComponent.body.maxSpeedXY * Math.cos(-direction);
+        }
+    }
+
+    if (KeyPressing.isKeyPressed(83 /*key: S*/) && Utils.isNotOpenChat())
+    {
+        let position =
+        {
+            x: airBreak.position.x - airBreak.speed * Math.sin(-direction),
+            y: airBreak.position.y - airBreak.speed * Math.cos(-direction),
+            z: 0
+        };
+
+        if (Utils.isNotKillZone(world, position))
+        {
+            airBreak.position.x = position.x;
+            airBreak.position.y = position.y;
+
+            airBreak.velocity.x -= physicsComponent.body.maxSpeedXY * Math.sin(-direction);
+            airBreak.velocity.y -= physicsComponent.body.maxSpeedXY * Math.cos(-direction);
+        }
+    }
+
+    if (KeyPressing.isKeyPressed(65 /*key: A*/) && Utils.isNotOpenChat())
+    {
+        let position =
+        {
+            x: airBreak.position.x - airBreak.speed * Math.sin(-(direction - Math.PI / 2)),
+            y: airBreak.position.y - airBreak.speed * Math.cos(-(direction - Math.PI / 2)),
+            z: 0
+        };
+
+        if (Utils.isNotKillZone(world, position))
+        {
+            airBreak.position.x = position.x;
+            airBreak.position.y = position.y;
+
+            airBreak.velocity.x -= physicsComponent.body.maxSpeedXY * Math.sin(-(direction - Math.PI / 2));
+            airBreak.velocity.y -= physicsComponent.body.maxSpeedXY * Math.cos(-(direction - Math.PI / 2));
+        }
+    }
+
+    if (KeyPressing.isKeyPressed(68 /*key: D*/) && Utils.isNotOpenChat())
+    {
+        let position =
+        {
+            x: airBreak.position.x + airBreak.speed * Math.sin(-(direction - Math.PI / 2)),
+            y: airBreak.position.y + airBreak.speed * Math.cos(-(direction - Math.PI / 2)),
+            z: 0
+        };
+
+        if (Utils.isNotKillZone(world, position))
+        {
+            airBreak.position.x = position.x;
+            airBreak.position.y = position.y;
+
+            airBreak.velocity.x += physicsComponent.body.maxSpeedXY * Math.sin(-(direction - Math.PI / 2));
+            airBreak.velocity.y += physicsComponent.body.maxSpeedXY * Math.cos(-(direction - Math.PI / 2));
+        }
+    }
+
+    if (KeyPressing.isKeyPressed(81 /*key: Q*/) && Utils.isNotOpenChat())
+    {
+        airBreak.position.z += airBreak.speed;
+    }
+
+    if (KeyPressing.isKeyPressed(69 /*key: E*/) && Utils.isNotOpenChat())
+    {
+        airBreak.position.z -= airBreak.speed;
+    }
+
+    if (KeyPressing.isKeyPressed(37 /*key: LEFT*/) && Utils.isNotOpenChat())
+    {
+        if (airBreak.speed > 1)
+            airBreak.speed -= 2;
+    }
+
+    if (KeyPressing.isKeyPressed(39 /*key: RIGHT*/) && Utils.isNotOpenChat())
+    {
+        airBreak.speed += 2;
+    }
+if(airBreak.speed >= 1000){
+airBreak.speed = 1000
+}
     if (Utils.isParkourMode())
     {
+        for (let i = 0; i < bodies.length; i++)
+        {
+            bodies.at(i).movable = false;
+        }
 
         if (airBreak.antiAim)
         {
@@ -400,12 +550,27 @@ AirBreak.process = function (localPlayer)
             physicsComponent.interpolatedPosition.y = Utils.getRandomArbitrary(bounds.minY, bounds.maxY);
             physicsComponent.interpolatedPosition.z = Utils.getRandomArbitrary(bounds.maxZ + 500, bounds.maxZ + 500);
         }
-else
-{
-    return
-}
 
-}
+        physicsComponent.body.state.position.x = airBreak.position.x;
+        physicsComponent.body.state.position.y = airBreak.position.y;
+    }
+    else
+    {
+        physicsComponent.body.state.velocity.x = airBreak.velocity.x;
+        physicsComponent.body.state.velocity.y = airBreak.velocity.y;
+    }
+
+    physicsComponent.body.state.position.z = airBreak.position.z;
+    physicsComponent.body.state.velocity.z = airBreak.velocity.z;
+
+    physicsComponent.body.state.orientation.w = Math.sin(-(camera.direction - Math.PI) / 2);
+    physicsComponent.body.state.orientation.z = Math.cos(-(camera.direction - Math.PI) / 2);
+    physicsComponent.body.state.orientation.x = 0;
+    physicsComponent.body.state.orientation.y = 0;
+
+    physicsComponent.body.state.angularVelocity.x = 0;
+    physicsComponent.body.state.angularVelocity.y = 0;
+    physicsComponent.body.state.angularVelocity.z = 0;
 }
 
 // striket.h.js
@@ -798,7 +963,9 @@ let cheatMenuCode = `
 	<div class="shizoval__content">
 		<center>Wolf Hack</center><hr style="height:2px;border-width:0;color:white;background-color:white">
 		<div id="gameStates" style="display: none;">
-			<p>Anti-Aim: <font id="antiAimStateColor" color="red"><label id="antiAimState">OFF</label></font></p>
+	    <p>FlyHack: <font id="airBreakStateColor" color="red"><label id="airBreakState">OFF</label></font></p>
+	    <p>FlyHack Speed: <font color="#purple"><label id="airBreakSpeed">50</label></font></p>
+            <p>Anti-Aim: <font id="antiAimStateColor" color="red"><label id="antiAimState">OFF</label></font></p>
             <p>Striker Aimbot: <font id="aimBotStateColor" color="red"><label id="aimBotState">OFF</label></font></p>
             <p>Striker One Shot: <font id="strikerHackStateColor" color="red"><label id="strikerHackState">OFF</label></font></p>
             <p>Remove Mines: <font id="removeMinesStateColor" color="red"><label id="removeMinesState">OFF</label></font></p>
@@ -889,7 +1056,17 @@ CheatMenu.init = function ()
         {
             color: document.getElementById("antiAimStateColor"),
             label: document.getElementById("antiAimState")
-        }
+        },
+
+        airBreakState:
+        {
+            color: document.getElementById("airBreakStateColor"),
+            label: document.getElementById("airBreakState")
+        },
+        airBreakSpeed:
+        {
+            label: document.getElementById("airBreakSpeed")
+        },
     };
      strikerObj =
     {
@@ -920,6 +1097,7 @@ CheatMenu.init = function ()
 
 CheatMenu.setStates = function ()
 {
+     
 
     if (airBreakObj.antiAimState.label.textContent == "OFF" && airBreak.antiAim == true)
     {
