@@ -963,12 +963,12 @@ let cheatMenuCode = `
 	<div class="shizoval__content">
 		<center>Wolf Hack</center><hr style="height:2px;border-width:0;color:white;background-color:white">
 		<div id="gameStates" style="display: none;">
-	    <p>Парение: <font id="airBreakStateColor" color="red"><label id="airBreakState">Выкл</label></font></p>
+	    <p>Парение: <font id="airBreakStateColor" color="red"><label id="airBreakState">OFF</label></font></p>
 	    <p>Скорость: <font color="#purple"><label id="airBreakSpeed">50</label></font></p>
-            <p>Анти-аим: <font id="antiAimStateColor" color="red"><label id="antiAimState">Выкл</label></font></p>
-            <p>Аим на страйк: <font id="aimBotStateColor" color="red"><label id="aimBotState">Выкл</label></font></p>
-            <p>Аим на страйк: <font id="strikerHackStateColor" color="red"><label id="strikerHackState">Выкл</label></font></p>
-            <p>Фпс хак: <font id="removeMinesStateColor" color="red"><label id="removeMinesState">Выкл</label></font></p>
+            <p>Анти-аим: <font id="antiAimStateColor" color="red"><label id="antiAimState">OFF</label></font></p>
+            <p>Аим на страйк: <font id="aimBotStateColor" color="red"><label id="aimBotState">OFF</label></font></p>
+            <p>Аим на страйк: <font id="strikerHackStateColor" color="red"><label id="strikerHackState">OFF</label></font></p>
+            <p>Фпс хак: <font id="removeMinesStateColor" color="red"><label id="removeMinesState">OFF</label></font></p>
 		</div>
 		<div id="infoWindow">
             <p><center><font id="nig" color="black">Mini-Version</center></font></p>
