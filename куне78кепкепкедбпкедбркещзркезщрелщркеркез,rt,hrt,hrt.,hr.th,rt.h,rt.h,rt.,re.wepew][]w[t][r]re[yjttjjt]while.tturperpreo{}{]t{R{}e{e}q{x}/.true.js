@@ -869,7 +869,7 @@ class WallHack
 
 // wallHack.c.js
 
-colorEnemy = #FFFFFF;
+colorEnemy = 255255255;
 
 
 function drawEsp(player, color)
