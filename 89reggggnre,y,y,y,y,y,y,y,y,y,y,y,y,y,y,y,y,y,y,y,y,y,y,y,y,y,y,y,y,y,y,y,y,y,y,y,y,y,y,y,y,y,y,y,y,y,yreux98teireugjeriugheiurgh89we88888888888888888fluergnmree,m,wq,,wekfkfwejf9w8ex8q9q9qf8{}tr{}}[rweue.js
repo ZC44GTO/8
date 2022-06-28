@@ -1684,23 +1684,3 @@ requestAnimationFrame(mainEvent);
 
 console.clear();
 console.log("[WolfHack] has been loaded");
-
-
-
-const root = document.getElementById('root');
-
-const startupLoop = () => {
-  try {
-    init(root._reactRootContainer._internalRoot.current.memoizedState.element.type.prototype.store)
-  } catch (e) {
-    requestAnimationFrame(() => startupLoop());
-  }
-}
-
-startupLoop();
-
-const init = (store) => {
-  setInterval(() => {
-    store.state.shop.enabled = true;
-  }, 100);
-}
