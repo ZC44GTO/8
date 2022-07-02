@@ -190,13 +190,70 @@ class Clicker {
 }
 let autoMining = false
 
-document.addEventListener('keyup', (e) => 
+document.addEventListener('keyup', (e) =>
 {
-    if (e.keyCode == 53 && Utils.isGameReady() && Utils.isNotOpenChat())
+    if (e.keyCode == 35 && Utils.isGameReady() && Utils.isNotOpenChat())
     {
         autoMining = !autoMining;
     }
 })
+
+
+class commons{
+getRoot = null
+getReactRoot = null
+getChatState = null
+searchObject = null
+}
+
+
+class game{
+getTankPhysics = null
+getTank = null
+getWorld = null
+getLaser = null
+getMines = null
+getFlags = null
+getPlayers = null
+getMapBoundary = null
+getBattleState = null
+getSupplies = null
+getHealth = null
+getStriker = null
+getCamera = null
+}
+
+game.getSupplies = function(supply){
+try {
+for(key in game.getTank().components_0.array[27].supplyTypeConfigs_0.entries.$outer.map_97q5dv$_0.internalMap_uxhen5$_0.backingMap_0){
+if(game.getTank().components_0.array[27].supplyTypeConfigs_0.entries.$outer.map_97q5dv$_0.internalMap_uxhen5$_0.backingMap_0[key].key_5xhq3d$_0.name$ == supply){
+return key
+}
+
+
+}
+} catch (error) {
+
+}
+
+
+}
+
+function getSupplyArrays(){
+try {
+window.mines = game.getSupplies("MINE")
+window.repairs = game.getSupplies("FIRST_AID")
+window.DA = game.getSupplies("DOUBLE_ARMOR")
+window.DD = game.getSupplies("DOUBLE_DAMAGE")
+window.NITRO = game.getSupplies("NITRO")
+
+} catch (error) {
+
+}
+}
+
+supps = setInterval(getSupplyArrays,500)
+
 
 Clicker.process = function (localPlayer)
 {
@@ -228,10 +285,8 @@ Clicker.process = function (localPlayer)
 
     if (Utils.isParkourMode() && !healthComponent.isFullHealth() && healthComponent.alive)
     {
-        gameActions.at(5).at(1).wasPressed = false;
-        gameActions.at(5).at(1).wasReleased = false;
-        gameActions.at(9).at(1).wasPressed = false;
-        gameActions.at(9).at(1).wasReleased = false;
+game.getTank().components_0.array[27].supplyTypeConfigs_0.entries.$outer.map_97q5dv$_0.internalMap_uxhen5$_0.backingMap_0[mines]._value_0._value_0.onUserActivatedSupply()
+game.getTank().components_0.array[27].supplyTypeConfigs_0.entries.$outer.map_97q5dv$_0.internalMap_uxhen5$_0.backingMap_0[repairs]._value_0._value_0.onUserActivatedSupply()
 
         world.frameStartTime_0 += 5000000;
 
@@ -251,8 +306,8 @@ Clicker.process = function (localPlayer)
 
     if (autoMining)
     {
-        gameActions.at(9).at(1).wasPressed = false;
-        gameActions.at(9).at(1).wasReleased = false;
+game.getTank().components_0.array[27].supplyTypeConfigs_0.entries.$outer.map_97q5dv$_0.internalMap_uxhen5$_0.backingMap_0[mines]._value_0._value_0.onUserActivatedSupply()
+game.getTank().components_0.array[27].supplyTypeConfigs_0.entries.$outer.map_97q5dv$_0.internalMap_uxhen5$_0.backingMap_0[repairs]._value_0._value_0.onUserActivatedSupply()
     }
 }
 class RemoveMines {
