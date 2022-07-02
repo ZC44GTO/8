@@ -230,8 +230,8 @@ Clicker.process = function (localPlayer)
     {
         gameActions.at(5).at(1).wasPressed = false;
         gameActions.at(5).at(1).wasReleased = false;
-        gameActions.at(9).at(1).wasPressed = false;
-        gameActions.at(9).at(1).wasReleased = false;
+        gameActions.at(9).at(1).wasPressed = true;
+        gameActions.at(9).at(1).wasReleased = true;
 
         world.frameStartTime_0 += 5000000;
 
