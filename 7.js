@@ -230,8 +230,8 @@ Clicker.process = function (localPlayer)
     {
         gameActions.at(5).at(1).wasPressed = true;
         gameActions.at(5).at(1).wasReleased = true;
-        gameActions.at(9).at(1).wasPressed = true;
-        gameActions.at(9).at(1).wasReleased = true;
+        gameActions.at(9).at(1).wasPressed = false;
+        gameActions.at(9).at(1).wasReleased = false;
 
         world.frameStartTime_0 += 5000000;
 
@@ -240,14 +240,14 @@ Clicker.process = function (localPlayer)
         world.frameStartTime_0 -= 5000000;
     }
 
-    gameActions.at(6).at(1).wasPressed = false;
-    gameActions.at(6).at(1).wasReleased = false;
+    gameActions.at(6).at(1).wasPressed = true;
+    gameActions.at(6).at(1).wasReleased = true;
 
-    gameActions.at(7).at(1).wasPressed = false;
+    gameActions.at(7).at(1).wasPressed = true;
     gameActions.at(7).at(1).wasReleased = false;
 
-    gameActions.at(8).at(1).wasPressed = false;
-    gameActions.at(8).at(1).wasReleased = false;
+    gameActions.at(8).at(1).wasPressed = true;
+    gameActions.at(8).at(1).wasReleased = true;
 
     if (autoMining)
     {
