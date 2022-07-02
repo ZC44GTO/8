@@ -228,8 +228,8 @@ Clicker.process = function (localPlayer)
 
     if (Utils.isParkourMode() && !healthComponent.isFullHealth() && healthComponent.alive)
     {
-        gameActions.at(5).at(1).wasPressed = true;
-        gameActions.at(5).at(1).wasReleased = true;
+        gameActions.at(5).at(1).wasPressed = false;
+        gameActions.at(5).at(1).wasReleased = false;
         gameActions.at(9).at(1).wasPressed = false;
         gameActions.at(9).at(1).wasReleased = false;
 
